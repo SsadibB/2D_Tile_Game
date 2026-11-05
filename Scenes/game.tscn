@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://vmi43i0o5jwr" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://b3fgiol7ppla0" path="res://Sprites/sprites/world_tileset.png" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://bu3sho36mayyw" path="res://Scenes/platform.tscn" id="3_wrm1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_qxrlw")
@@ -156,6 +157,99 @@ texture = ExtResource("2_qxrlw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 
+[sub_resource type="Animation" id="Animation_wrm1d"]
+resource_name = "MoveUP"
+length = 1.5
+loop_mode = 2
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(351, 12), Vector2(351, -58)]
+}
+
+[sub_resource type="Animation" id="Animation_3dryh"]
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(351, 12), Vector2(724, -155), Vector2(764, -187)]
+}
+
+[sub_resource type="Animation" id="Animation_1l0tm"]
+resource_name = "leftDia"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(412, -383), Vector2(375, -442)]
+}
+
+[sub_resource type="Animation" id="Animation_i6g32"]
+resource_name = "moveDia"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(685, -169), Vector2(727, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_wowpa"]
+resource_name = "moveUP"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(765, -205), Vector2(765, -363)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
+_data = {
+&"MoveUP": SubResource("Animation_wrm1d"),
+&"RESET": SubResource("Animation_3dryh"),
+&"leftDia": SubResource("Animation_1l0tm"),
+&"moveDia": SubResource("Animation_i6g32"),
+&"moveUP": SubResource("Animation_wowpa")
+}
+
 [node name="Game" type="Node2D" unique_id=508746830]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=166017730]
@@ -170,3 +264,34 @@ position = Vector2(21, 25)
 position = Vector2(0, -7)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+
+[node name="Platform" parent="." unique_id=714101785 instance=ExtResource("3_wrm1d")]
+position = Vector2(100, -17)
+
+[node name="Platform2" parent="." unique_id=987173941 instance=ExtResource("3_wrm1d")]
+position = Vector2(351, 12)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2" unique_id=1404837466]
+libraries/ = SubResource("AnimationLibrary_wowpa")
+autoplay = &"MoveUP"
+
+[node name="Platform3" parent="." unique_id=898254844 instance=ExtResource("3_wrm1d")]
+position = Vector2(351, 12)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform3" unique_id=196178148]
+libraries/ = SubResource("AnimationLibrary_wowpa")
+autoplay = &"moveDia"
+
+[node name="Platform4" parent="." unique_id=883476842 instance=ExtResource("3_wrm1d")]
+position = Vector2(351, 12)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform4" unique_id=2143802369]
+libraries/ = SubResource("AnimationLibrary_wowpa")
+autoplay = &"moveUP"
+
+[node name="Platform5" parent="." unique_id=1887998998 instance=ExtResource("3_wrm1d")]
+position = Vector2(351, 12)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform5" unique_id=441947729]
+libraries/ = SubResource("AnimationLibrary_wowpa")
+autoplay = &"leftDia"
