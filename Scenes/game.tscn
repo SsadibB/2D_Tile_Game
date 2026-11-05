@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://cf8fv3od1mpi8"]
 
 [ext_resource type="PackedScene" uid="uid://vmi43i0o5jwr" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://0uwserivxig1" path="res://Scripts/game_manager.gd" id="1_v158k"]
+[ext_resource type="FontFile" uid="uid://cj1v1vdjbrasr" path="res://Sprites/fonts/PixelOperator8-Bold.ttf" id="2_h4fw4"]
 [ext_resource type="Texture2D" uid="uid://b3fgiol7ppla0" path="res://Sprites/sprites/world_tileset.png" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bu3sho36mayyw" path="res://Scenes/platform.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bhg88j7slus7p" path="res://Scenes/coin.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bf6v6r471wlso" path="res://Scenes/killzone.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://d0j4pcy45vcqo" path="res://Scenes/slime.tscn" id="6_i6g32"]
+[ext_resource type="FontFile" uid="uid://elmx1v2a34x1" path="res://Sprites/fonts/PixelOperator8.ttf" id="7_1l0tm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_qxrlw")
@@ -257,6 +260,23 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=508746830]
 
+[node name="GameManager" type="Node" parent="." unique_id=1631477231]
+unique_name_in_owner = true
+script = ExtResource("1_v158k")
+
+[node name="ScoreLabel" type="Label" parent="GameManager" unique_id=1432087477]
+offset_left = 206.0
+offset_top = -491.0
+offset_right = 350.0
+offset_bottom = -466.0
+theme_override_colors/font_color = Color(0.078431375, 0.59607846, 0.8627451, 1)
+theme_override_fonts/font = ExtResource("2_h4fw4")
+theme_override_font_sizes/font_size = 8
+text = "You have collected X coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="." unique_id=166017730]
 tile_set = SubResource("TileSet_xrivr")
 format = 2
@@ -371,3 +391,47 @@ shape = SubResource("WorldBoundaryShape2D_xrivr")
 
 [node name="Slime" parent="." unique_id=743129512 instance=ExtResource("6_i6g32")]
 position = Vector2(420, -76)
+
+[node name="Labels" type="Node" parent="." unique_id=1261141713]
+
+[node name="Label" type="Label" parent="Labels" unique_id=994770469]
+offset_left = -95.0
+offset_top = 28.0
+offset_right = 15.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0.09803922, 0.3137255, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("7_1l0tm")
+theme_override_font_sizes/font_size = 8
+text = "Space to jump"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=1939990027]
+offset_left = 380.0
+offset_top = -140.0
+offset_right = 544.0
+offset_bottom = -117.0
+theme_override_colors/font_color = Color(0.011764706, 0.14901961, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("7_1l0tm")
+theme_override_font_sizes/font_size = 8
+text = "Don't touch the slime"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=879314954]
+offset_left = 805.0
+offset_top = -428.0
+offset_right = 969.0
+offset_bottom = -405.0
+theme_override_colors/font_color = Color(0.011764706, 0.14901961, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("7_1l0tm")
+theme_override_font_sizes/font_size = 10
+text = "Almost there!!!"
+
+[node name="Label4" type="Label" parent="Labels" unique_id=1384737391]
+offset_left = 219.0
+offset_top = -504.0
+offset_right = 338.0
+offset_bottom = -491.0
+theme_override_colors/font_color = Color(0.078431375, 0.59607846, 0.8627451, 1)
+theme_override_fonts/font = ExtResource("7_1l0tm")
+theme_override_font_sizes/font_size = 8
+text = "You made it!!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
