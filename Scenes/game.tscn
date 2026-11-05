@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://vmi43i0o5jwr" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://b3fgiol7ppla0" path="res://Sprites/sprites/world_tileset.png" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bu3sho36mayyw" path="res://Scenes/platform.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bhg88j7slus7p" path="res://Scenes/coin.tscn" id="4_3dryh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_qxrlw")
@@ -265,33 +266,91 @@ position = Vector2(0, -7)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
-[node name="Platform" parent="." unique_id=714101785 instance=ExtResource("3_wrm1d")]
+[node name="Platforms" type="Node" parent="." unique_id=1780826823]
+
+[node name="Platform" parent="Platforms" unique_id=714101785 instance=ExtResource("3_wrm1d")]
 position = Vector2(100, -17)
 
-[node name="Platform2" parent="." unique_id=987173941 instance=ExtResource("3_wrm1d")]
+[node name="Platform2" parent="Platforms" unique_id=987173941 instance=ExtResource("3_wrm1d")]
 position = Vector2(351, 12)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2" unique_id=1404837466]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2" unique_id=1404837466]
 libraries/ = SubResource("AnimationLibrary_wowpa")
 autoplay = &"MoveUP"
 
-[node name="Platform3" parent="." unique_id=898254844 instance=ExtResource("3_wrm1d")]
+[node name="Coin4" parent="Platforms/Platform2" unique_id=7314192 instance=ExtResource("4_3dryh")]
+position = Vector2(-1, -17)
+
+[node name="Platform3" parent="Platforms" unique_id=898254844 instance=ExtResource("3_wrm1d")]
 position = Vector2(351, 12)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform3" unique_id=196178148]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform3" unique_id=196178148]
 libraries/ = SubResource("AnimationLibrary_wowpa")
 autoplay = &"moveDia"
 
-[node name="Platform4" parent="." unique_id=883476842 instance=ExtResource("3_wrm1d")]
+[node name="Coin9" parent="Platforms/Platform3" unique_id=1362871686 instance=ExtResource("4_3dryh")]
+position = Vector2(-2, -18)
+
+[node name="Platform4" parent="Platforms" unique_id=883476842 instance=ExtResource("3_wrm1d")]
 position = Vector2(351, 12)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform4" unique_id=2143802369]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform4" unique_id=2143802369]
 libraries/ = SubResource("AnimationLibrary_wowpa")
 autoplay = &"moveUP"
 
-[node name="Platform5" parent="." unique_id=1887998998 instance=ExtResource("3_wrm1d")]
+[node name="Coin10" parent="Platforms/Platform4" unique_id=1667995016 instance=ExtResource("4_3dryh")]
+position = Vector2(-1, -17)
+
+[node name="Platform5" parent="Platforms" unique_id=1887998998 instance=ExtResource("3_wrm1d")]
 position = Vector2(351, 12)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform5" unique_id=441947729]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform5" unique_id=441947729]
 libraries/ = SubResource("AnimationLibrary_wowpa")
 autoplay = &"leftDia"
+
+[node name="Coin15" parent="Platforms/Platform5" unique_id=789971427 instance=ExtResource("4_3dryh")]
+position = Vector2(-1, -18)
+
+[node name="Coins" type="Node" parent="." unique_id=1463192429]
+
+[node name="Coin" parent="Coins" unique_id=499415144 instance=ExtResource("4_3dryh")]
+position = Vector2(99, -32)
+
+[node name="Coin2" parent="Coins" unique_id=63811970 instance=ExtResource("4_3dryh")]
+position = Vector2(95, 4)
+
+[node name="Coin3" parent="Coins" unique_id=617234169 instance=ExtResource("4_3dryh")]
+position = Vector2(241, 8)
+
+[node name="Coin5" parent="Coins" unique_id=183711930 instance=ExtResource("4_3dryh")]
+position = Vector2(434, -78)
+
+[node name="Coin6" parent="Coins" unique_id=316549022 instance=ExtResource("4_3dryh")]
+position = Vector2(536, -93)
+
+[node name="Coin7" parent="Coins" unique_id=2112098435 instance=ExtResource("4_3dryh")]
+position = Vector2(583, -126)
+
+[node name="Coin8" parent="Coins" unique_id=898983441 instance=ExtResource("4_3dryh")]
+position = Vector2(655, -160)
+
+[node name="Coin11" parent="Coins" unique_id=674291358 instance=ExtResource("4_3dryh")]
+position = Vector2(848, -211)
+
+[node name="Coin12" parent="Coins" unique_id=1774090270 instance=ExtResource("4_3dryh")]
+position = Vector2(631, -346)
+
+[node name="Coin13" parent="Coins" unique_id=1184538985 instance=ExtResource("4_3dryh")]
+position = Vector2(578, -346)
+
+[node name="Coin14" parent="Coins" unique_id=865174785 instance=ExtResource("4_3dryh")]
+position = Vector2(455, -379)
+
+[node name="Coin16" parent="Coins" unique_id=1525901363 instance=ExtResource("4_3dryh")]
+position = Vector2(279, -429)
+
+[node name="Coin17" parent="Coins" unique_id=853927207 instance=ExtResource("4_3dryh")]
+position = Vector2(224, -460)
+
+[node name="Coin18" parent="Coins" unique_id=1746995069 instance=ExtResource("4_3dryh")]
+position = Vector2(336, -461)
